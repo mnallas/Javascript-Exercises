@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS</title>
+  </head>
+  <body>
+    <script>
+      var computerChoices = ["r", "p", "s"];
+
+      var wins = 0;
+      var loses = 0;
+      var ties = 0;
+
+      for (var i = 0; i < 10; i++) {
+        var randomNumber = Math.floor(Math.random() * computerChoices.length);
+        var computerGuess = computerChoices[randomNumber];
+
+        var userGuess = prompt("Enter r, p, or s");
+
+        if (userGuess === "r" || userGuess === "s" || userGuess === "p") {
+          if (
+            (userGuess === "r" && computerGuess === "s") ||
+            (userGuess === "s" && computerGuess === "p") ||
+            (userGuess === "p" && computerGuess === "r")
+          ) {
+            wins++;
+            alert("You have won " + wins + " times");
+          } else if (userGuess === computerGuess) {
+            ties++;
+            alert("You've tied " + ties + " times.");
+          } else {
+            loses++;
+            alert("You've lost " + loses + " times.");
+          }
+        }
+      }
+      alert("Wins: " + wins + "\nLoses: " + loses + "\nTies: " + ties);
+    </script>
+  </body>
+</html>
